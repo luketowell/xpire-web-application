@@ -1,0 +1,7 @@
+node_modules
+sass
+public
+src
+README.md
+.gitignore
+npm-debug.log
