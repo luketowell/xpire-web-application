@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { authUser } from '../redux/actions/auth';
+import { Redirect } from 'react-router-dom';
+import Header from '../components/Header/header'
 
 class Login extends Component {
 
@@ -10,12 +12,16 @@ class Login extends Component {
     }
     
     render(){
-        console.log(this.props.auth)
+        if (this.props.auth.userAuthed){
+            return (
+                <Redirect to="/home"/>
+            )
+        }
         return (
         <div>
-            <h2>Login</h2>
+            <Header name="Login"/>
             <div>
-                <button onClick={()=> this.loginClicked()}>Click Me </button>
+                <button onClick={()=> this.loginClicked()}>Log In</button>
             </div>
         </div>
         )

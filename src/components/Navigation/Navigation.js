@@ -3,40 +3,31 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
     Redirect
   } from "react-router-dom";
-import {Login, Home, StoreInfo, Metrics} from '../../pages';
+import { Login, Home, StoreInfo, Metrics } from '../../pages';
+import { connect } from 'react-redux';
+
+
 
 class Navigation extends Component{
     render(){
         return (
             <Router>
                 <div>
-                    <ul>
-                      <li>
-                          <Link to="/home">Home</Link>
-                      </li>
-                      <li>
-                          <Link to="/metrics">Metrics</Link>
-                      </li>
-                      <li>
-                          <Link to="/storeinfo">Store Info</Link>
-                      </li>
-                    </ul>
                     <Switch>
                       <Route exact path="/">
                           <Login />
                       </Route>
-                      <Route path="/home">
+                      <PrivateRoute path="/home" authed={this.props.auth.userAuthed}>
                           <Home/>
-                      </Route>
-                      <Route path="/metrics">
+                      </PrivateRoute>
+                      <PrivateRoute path="/metrics" authed={this.props.auth.userAuthed}>
                           <Metrics />
-                      </Route>
-                      <Route path="/storeinfo">
+                      </PrivateRoute>
+                      <PrivateRoute path="/storeinfo" authed={this.props.auth.userAuthed}>
                           <StoreInfo />
-                      </Route>
+                      </PrivateRoute>
                     </Switch>
                 </div>
             </Router>
@@ -44,17 +35,17 @@ class Navigation extends Component{
     }
 }
 
-function PrivateRoute({ children, ...rest }) {
+function PrivateRoute({ authed, children, ...rest }) {
     return (
       <Route
         {...rest}
         render={({ location }) =>
-          fakeAuth.isAuthenticated ? (
+          authed ? (
             children
           ) : (
             <Redirect
               to={{
-                pathname: "/login",
+                pathname: "/",
                 state: { from: location }
               }}
             />
@@ -64,16 +55,10 @@ function PrivateRoute({ children, ...rest }) {
     );
   }
 
-  const fakeAuth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-      fakeAuth.isAuthenticated = true;
-      setTimeout(cb, 100); // fake async
-    },
-    signout(cb) {
-      fakeAuth.isAuthenticated = false;
-      setTimeout(cb, 100);
+  const mapStateToProps = (state) => {
+    return {
+      auth: state.auth
     }
-  };
+  }
 
-export default Navigation
+export default connect(mapStateToProps, {})(Navigation)
