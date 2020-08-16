@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { authUser } from '../redux/actions/auth';
+import { authUser, getStores } from '../redux/actions/auth';
 import { Redirect } from 'react-router-dom';
 import Logo from '../assets/images/logo.png'
 
@@ -9,6 +9,9 @@ class Login extends Component {
     loginClicked = () => {
         console.log("clicked");
         this.props.authUser();
+    }
+    componentDidMount(){
+        this.props.getStores()
     }
     
     render(){
@@ -37,4 +40,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect (mapStateToProps, { authUser })(Login);
+export default connect (mapStateToProps, { authUser, getStores })(Login);
