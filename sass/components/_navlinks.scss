@@ -5,18 +5,18 @@
 
     li {
         display: inline-block;
+        color: $color-grey;
         padding: 1rem;
         font-size: 2rem;
-        border-right: 2px Solid black;
+        border-right: 2px Solid $color-grey;
         a {
             text-decoration: none;
-
-            &:hover{
-                text-decoration: underline;
+            &:visited{
                 color:$color-grey;
             }
-            &:visited{
-                color:black;
+            &:hover{
+                text-decoration: underline;
+                color: black
             }
         }
 

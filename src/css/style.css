@@ -15,15 +15,16 @@
   overflow: hidden; }
   .NavLinks li {
     display: inline-block;
+    color: #777;
     padding: 1rem;
     font-size: 2rem;
-    border-right: 2px Solid black; }
+    border-right: 2px Solid #777; }
     .NavLinks li a {
       text-decoration: none; }
+      .NavLinks li a:visited {
+        color: #777; }
       .NavLinks li a:hover {
         text-decoration: underline;
-        color: #777; }
-      .NavLinks li a:visited {
         color: black; }
     .NavLinks li:last-child {
       border-right: none; }
