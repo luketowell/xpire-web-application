@@ -3,29 +3,18 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
     Redirect
   } from "react-router-dom";
 import { Login, Home, StoreInfo, Metrics } from '../../pages';
 import { connect } from 'react-redux';
 
+
+
 class Navigation extends Component{
     render(){
-      console.log(this.props.auth)
         return (
             <Router>
                 <div>
-                    <ul>
-                      <li>
-                          <Link to="/home">Home</Link>
-                      </li>
-                      <li>
-                          <Link to="/metrics">Metrics</Link>
-                      </li>
-                      <li>
-                          <Link to="/storeinfo">Store Info</Link>
-                      </li>
-                    </ul>
                     <Switch>
                       <Route exact path="/">
                           <Login />
