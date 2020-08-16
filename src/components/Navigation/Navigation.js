@@ -25,7 +25,7 @@ class Navigation extends Component{
                       </li>
                     </ul>
                     <Switch>
-                      <Route path="/login">
+                      <Route exact path="/">
                           <Login />
                       </Route>
                       <Route path="/home">
