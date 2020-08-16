@@ -2,7 +2,7 @@ import React from 'react';
 import './css/style.css';
 import Navigation from './components/Navigation/Navigation';
 
-import { ENV } from './contants';
+import { ENV } from './constants';
 
 function App() {
 
