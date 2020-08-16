@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import NavLinks from '../components/Navigation/NavLinks'
+import Header from '../components/Header/Header'
 
 class Metrics extends Component {
     render(){
         return (
         <div>
-            <NavLinks/>
-            <h2>Metrics</h2>
+            <Header name="Metrics"/>
         </div>
         )
     }

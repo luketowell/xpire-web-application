@@ -1,0 +1,29 @@
+.NavLinks{
+    margin-left:2.5rem;
+    list-style-type: none;
+    overflow: hidden;
+
+    li {
+        display: inline-block;
+        color: $color-grey;
+        padding: 1rem;
+        font-size: 2rem;
+        border-right: 2px Solid $color-grey;
+        a {
+            text-decoration: none;
+            &:visited{
+                color:$color-grey;
+            }
+            &:hover{
+                text-decoration: underline;
+                color: black
+            }
+        }
+
+        &:last-child {
+            border-right: none
+          }
+
+        
+    }
+}

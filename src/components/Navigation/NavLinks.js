@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 class NavLinks extends Component {
     render(){
         return(
-            <div>
-                <ul>
+            <div >
+                <ul className="NavLinks">
                     <li>
                         <Link to="/home">Home</Link>
                     </li>
