@@ -1,0 +1,51 @@
+
+//Auth Actions
+//LOGIN
+export const USER_AUTH = 'USER_AUTH';
+
+//Get Store List
+export const GET_STORES_PENDING = 'GET_STORES_PENDING';
+export const GET_STORES_SUCCESS = 'GET_STORES_SUCCESS';
+export const GET_STORES_FAILED = 'GET_STORES_FAILED';
+
+//Set Store
+export const SET_USER_STORE = 'SET_USER_STORE';
+
+//Item Actions
+//get items for store
+export const GET_ITEMS_PENDING = 'GET_ITEMS_PENDING';
+export const GET_ITEMS_SUCCESS = 'GET_ITEMS_SUCCESS';
+export const GET_ITEMS_FAILED = 'GET_ITEMS_FAILED';
+
+//get categories
+export const GET_CATEGORIES_PENDING = 'GET_CATEGORIES_PENDING';
+export const GET_CATEGORIES_SUCCESS = 'GET_CATEGORIES_SUCCESS';
+export const GET_CATEGORIES_FAILED = 'GET_CATEGORIES_FAILED';
+
+//get status
+export const GET_STATUS_PENDING = 'GET_STATUS_PENDING';
+export const GET_STATUS_SUCCESS = 'GET_STATUS_SUCCESS';
+export const GET_STATUS_FAILED = 'GET_STATUS_FAILED';
+
+//get individual action
+export const GET_ACTION_PENDING = 'GET_ACTION_PENDING';
+export const GET_ACTION_SUCCESS = 'GET_ACTION_SUCCESS';
+export const GET_ACTION_FAILED = 'GET_ACTION_FAILED';
+
+//post new action
+export const POST_ACTION_PENDING = 'POST_ACTION_PENDING';
+export const POST_ACTION_SUCCESS = 'POST_ACTION_SUCCESS';
+export const POST_ACTION_FAILED = 'POST_ACTION_FAILED';
+
+//post new item
+export const POST_ITEM_PENDING = 'POST_ITEM_PENDING';
+export const POST_ITEM_SUCCESS = 'POST_ITEM_SUCCESS';
+export const POST_ITEM_FAILED = 'POST_ITEM_FAILED';
+
+
+//search for item details
+export const FIND_ITEM_PENDING = 'FIND_ITEM_PENDING';
+export const FIND_ITEM_SUCCESS = 'FIND_ITEM_SUCCESS';
+export const FIND_ITEM_FAILED = 'FIND_ITEM_FAILED';
+
+
