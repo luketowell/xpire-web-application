@@ -76,3 +76,26 @@ body {
     width: calc( (2 * (100% - 3 * 6rem) / 4) + 6rem); }
   .row .col-3-of-4 {
     width: calc( (3 * (100% - 3 * 6rem) / 4) + 2 *6rem); }
+
+.LoginPage {
+  padding-top: 15rem;
+  margin: auto;
+  text-align: center; }
+  .LoginPage .text button {
+    margin: 3rem;
+    padding: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    text-transform: uppercase;
+    background-color: white;
+    border: 2px Solid #777;
+    border-radius: 1rem;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.3); }
+    .LoginPage .text button:hover {
+      background-color: #D3D3D3;
+      color: #fff;
+      transform: translateY(-0.3rem);
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+    .LoginPage .text button:active {
+      transform: translateY(-0.1rem);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }

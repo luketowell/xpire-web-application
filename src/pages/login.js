@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { authUser } from '../redux/actions/auth';
 import { Redirect } from 'react-router-dom';
+import Logo from '../assets/images/logo.png'
 
 class Login extends Component {
 
@@ -17,9 +18,12 @@ class Login extends Component {
             )
         }
         return (
-        <div>
-            <div>
-                <button onClick={()=> this.loginClicked()}>Log In</button>
+        <div className="LoginPage">
+            <div className="Logo">
+                <img src={Logo} height={200}/>
+            </div>
+            <div className="text">
+                <button onClick={()=> this.loginClicked()}>Sign In</button>
             </div>
         </div>
         )
