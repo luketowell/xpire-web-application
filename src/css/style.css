@@ -1,5 +1,32 @@
 .Header {
-  margin-top: 5rem; }
+  margin: auto;
+  text-align: center;
+  padding: 10px; }
+  .Header img {
+    object-fit: contain;
+    margin-left: -9rem;
+    position: absolute; }
+  .Header .header-text {
+    margin-top: 22rem; }
+
+.NavLinks {
+  margin-left: 2.5rem;
+  list-style-type: none;
+  overflow: hidden; }
+  .NavLinks li {
+    display: inline-block;
+    padding: 1rem;
+    font-size: 2rem;
+    border-right: 2px Solid black; }
+    .NavLinks li a {
+      text-decoration: none; }
+      .NavLinks li a:hover {
+        text-decoration: underline;
+        color: #777; }
+      .NavLinks li a:visited {
+        color: black; }
+    .NavLinks li:last-child {
+      border-right: none; }
 
 *,
 *::after,
