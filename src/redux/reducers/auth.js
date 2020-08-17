@@ -3,7 +3,8 @@ import user from '../../assets/mocks/user'
 const { USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
-    GET_STORES_FAILED } = require("../actionTypes")
+    GET_STORES_FAILED,
+    SET_CHOSEN_STORE } = require("../actionTypes")
 
 const initialState = {
     userAuthed : false,
@@ -39,6 +40,11 @@ const AuthReducer = (state = initialState, action) => {
                 ...state,
                 storesStatus: "complete",
                 error: action.payload.message
+            }
+        case SET_CHOSEN_STORE:
+            return {
+                ...state,
+                chosenStore: action.payload
             }
         default: {
             return {

@@ -1,7 +1,8 @@
 import { USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
-    GET_STORES_FAILED } from '../actionTypes';
+    GET_STORES_FAILED, 
+    SET_CHOSEN_STORE} from '../actionTypes';
 import request from '../../utils/request';
 
 export const authUser = () => {
@@ -34,6 +35,13 @@ export const getStores = () => {
         })
 
     } 
+}
+
+export const setChosenStore = (store) => {
+    return ({
+        type: SET_CHOSEN_STORE,
+        payload: store.value
+    })
 }
 
 // functions

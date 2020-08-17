@@ -9,7 +9,7 @@ export const GET_STORES_SUCCESS = 'GET_STORES_SUCCESS';
 export const GET_STORES_FAILED = 'GET_STORES_FAILED';
 
 //Set Store
-export const SET_USER_STORE = 'SET_USER_STORE';
+export const SET_CHOSEN_STORE = 'SET_CHOSEN_STORE';
 
 //Item Actions
 //get items for store
