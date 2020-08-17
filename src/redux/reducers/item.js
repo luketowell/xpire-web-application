@@ -3,8 +3,8 @@ const initialState = {
     categories:[],
     status:[],
     individualAction:{},
-    addedAction:{}
-
+    addedAction:{},
+    chosenCategory: {}
 }
 
 const ItemReducer = (state = initialState, action) => {
