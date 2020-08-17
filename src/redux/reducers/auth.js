@@ -1,3 +1,5 @@
+import user from '../../assets/mocks/user'
+
 const { USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
@@ -7,7 +9,9 @@ const initialState = {
     userAuthed : false,
     storesStatus: "complete",
     stores: [],
-    error: ""
+    error: "",
+    user: {},
+    chosenStore:false
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -15,7 +19,8 @@ const AuthReducer = (state = initialState, action) => {
         case USER_AUTH: 
             return {
                 ...state,
-                userAuthed:true
+                userAuthed:true,
+                user: user
             }
         case GET_STORES_PENDING:
             return{
