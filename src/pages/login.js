@@ -10,11 +10,10 @@ class Login extends Component {
         console.log("clicked");
         this.props.authUser();
     }
-    componentDidMount(){
-        this.props.getStores()
-    }
+    
     
     render(){
+        console.log(this.props.auth)
         if (this.props.auth.userAuthed){
             return (
                 <Redirect to="/home"/>
