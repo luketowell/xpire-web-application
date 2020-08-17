@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 class Category extends Component{
     
     render(){
-        console.log(this.props.name)
         return (
             <div>
         <img src="https://foodboxes.asda.com/images/thumbnails/978/675/detailed/3/FoodBoxes_products_fruit-and-veg-box__1_.jpg" width={200} />

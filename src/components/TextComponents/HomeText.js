@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
+import { setChosenStore } from '../../redux/actions/auth'
 
 class HomeText extends Component{
 
@@ -17,7 +18,6 @@ class HomeText extends Component{
 
     render(){
         let { user,  stores } = this.props.auth;
-        console.log(stores)
 
         return (
             <div>
@@ -27,7 +27,7 @@ class HomeText extends Component{
                 <Select
                     options={stores}
                     value={stores.filter(stores => stores.value === this.displayCurrentStore())}
-                    onChange={selected => console.log(selected)}
+                    onChange={selected => this.props.setChosenStore(selected)}
                 />
             </div>
         )
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect (mapStateToProps, {})(HomeText)
+export default connect (mapStateToProps, {setChosenStore})(HomeText)
