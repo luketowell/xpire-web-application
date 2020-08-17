@@ -24,7 +24,11 @@ class HomeText extends Component{
                 <p>Hello {user.name}, welcome to Xpire!</p>
                 <p>Your one stop shop for in store food wastage.</p>
                 <p>Your current store is {this.displayCurrentStore()}</p>
-                <Select options={stores} defaultValue="4128"/>
+                <Select
+                    options={stores}
+                    value={stores.filter(stores => stores.value === this.displayCurrentStore())}
+                    onChange={selected => console.log(selected)}
+                />
             </div>
         )
     }
