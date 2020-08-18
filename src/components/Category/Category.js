@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import asdaImage from '../../assets/images/asda.png';
 
 class Category extends Component{
+
+    renderImage = (categoryData) => {
+        if (categoryData.image_url){
+            return (
+                <img src={categoryData.image_url} alt="Category thumbnail Image" className="categoryThumbnail"/>
+            )
+        }
+
+        return (
+            <img src={asdaImage} alt="Category thumbnail Image" className="categoryThumbnail" />
+        )
+    }
     
     render(){
+        const { categoryData } = this.props
         return (
-            <div>
-        <img src="https://foodboxes.asda.com/images/thumbnails/978/675/detailed/3/FoodBoxes_products_fruit-and-veg-box__1_.jpg" width={200} />
-        <p>{this.props.name}</p>
-        </div>
+            <div className="category">
+                <p>{categoryData.name}</p>
+                {this.renderImage(categoryData)}
+            </div>
         )
     }
 }
