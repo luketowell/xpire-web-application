@@ -19,7 +19,7 @@ class Category extends Component{
     render(){
         const { categoryData } = this.props
         return (
-            <div className="category">
+            <div className="category" onClick={() => console.log("clicked")} >
                 <p>{categoryData.name}</p>
                 {this.renderImage(categoryData)}
             </div>
