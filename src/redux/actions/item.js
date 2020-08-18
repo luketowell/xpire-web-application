@@ -12,7 +12,7 @@ export const getCategories = () => {
         dispatch({
             type:GET_CATEGORIES_PENDING
         })
-        this.getCategoriesRequest()
+        getCategoriesRequest()
         .then((response) => {
             dispatch({
                 type:GET_CATEGORIES_SUCCESS,
@@ -30,8 +30,8 @@ export const getCategories = () => {
 }
 
 const getCategoriesRequest = async () => {
-    let url = "/itemcategories/all"
-    let method = "POST"
+    let url = "/itemcategory/all"
+    let method = "GET"
     try {
         let response = await request(url, method, null)
         return response
