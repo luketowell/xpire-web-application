@@ -17,18 +17,18 @@ const ItemReducer = (state = initialState, action) => {
         case GET_CATEGORIES_PENDING:
             return {
                 ...state,
-                categoriesStatus: "pending",
+                categoryStatus: "pending",
             }
         case GET_CATEGORIES_SUCCESS:
             return {
                 ...state,
-                categoriesStatus: "completed",
+                categoryStatus: "completed",
                 categories: action.payload
             }
         case GET_CATEGORIES_FAILED:
             return {
                 ...state,
-                categoriesStatus: "failed",
+                categoryStatus: "failed",
                 error: action.payload.message
             }
         default: {

@@ -30,6 +30,12 @@
     .NavLinks li:last-child {
       border-right: none; }
 
+.category {
+  width: 100%;
+  padding-top: 2rem; }
+  .category .categoryThumbnail {
+    height: 150px; }
+
 *,
 *::after,
 *::before {
@@ -52,8 +58,7 @@ body {
   padding: 3rem; }
 
 .row {
-  max-width: 80%;
-  margin: 0 auto;
+  max-width: 100%;
   margin-bottom: 8rem; }
   .row:last-child {
     margin-bottom: 0; }
