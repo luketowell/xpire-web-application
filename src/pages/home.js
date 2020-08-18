@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import HomeText from '../components/TextComponents/HomeText'
 import { getStores } from '../redux/actions/auth'
 import Category from '../components/Category/Category';
+import CategoryContainer from '../components/Category/CategoryContainer';
 
 class Home extends Component {
 
@@ -20,7 +21,7 @@ class Home extends Component {
             <Header name="Home"/>
             <div className="PageContent">
                 <HomeText/>
-                <Category name="Luke"/>
+                <CategoryContainer/>
             </div>
         </div>
         )
