@@ -1,7 +1,7 @@
 const displayCurrentStore = (authObject) => {
     if (authObject.chosenStore){
         return (
-            this.props.auth.chosenStore
+            authObject.chosenStore
         )
     }
     return (
