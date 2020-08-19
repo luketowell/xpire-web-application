@@ -7,7 +7,7 @@ class ItemList extends Component {
         let { items } = this.props 
         return (
             <div className="ItemList">
-                {items.categoryList.map((item) => (
+                {items.categoryItems.map((item) => (
                     <ItemCard itemDetails={item}/>
                 ))}
             </div>
