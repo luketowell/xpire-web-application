@@ -24,7 +24,7 @@ class CategoryContainer extends Component{
             return(
                 <div className="row">
                     {items.categories.map((category, index) => (
-                        <div className = "col-1-of-3">
+                        <div className = "col-1-of-3" key={index}>
                             <Category categoryData={category}/>
                         </div>
                     ))}  
@@ -34,11 +34,6 @@ class CategoryContainer extends Component{
     } 
 
     render(){
-
-        console.log("categoryContainer" + JSON.stringify(this.props.items))
-
-        
-
         return( 
             this.renderContainers()
         )
