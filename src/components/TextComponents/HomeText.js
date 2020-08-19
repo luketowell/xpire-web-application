@@ -2,19 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Select from 'react-select';
 import { setChosenStore } from '../../redux/actions/auth'
+import displayCurrentStore from '../../utils/currentStore';
 
 class HomeText extends Component{
 
-    displayCurrentStore = () => {
-        if (this.props.auth.chosenStore){
-            return (
-                this.props.auth.chosenStore
-            )
-        }
-        return (
-            this.props.auth.user.storeId
-        )
-    }
+    
 
     render(){
         let { user,  stores } = this.props.auth;
