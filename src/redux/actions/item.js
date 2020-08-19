@@ -2,9 +2,9 @@ import { USER_AUTH,
     GET_CATEGORIES_PENDING,
     GET_CATEGORIES_SUCCESS,
     GET_CATEGORIES_FAILED,
-    GET_ITEM_BY_CATEGORY_PENDING,
-    GET_ITEM_BY_CATEGORY_SUCCESS,
-    GET_ITEM_BY_CATEGORY_FAILED } from '../actionTypes';
+    GET_ITEMS_BY_CATEGORY_PENDING,
+    GET_ITEMS_BY_CATEGORY_SUCCESS,
+    GET_ITEMS_BY_CATEGORY_FAILED } from '../actionTypes';
 import request from '../../utils/request';
 import displayCurrentStore from '../../utils/currentStore';
 
@@ -36,23 +36,24 @@ export const getCategories = () => {
     }
 }
 
-export const setCategories = (categoryId) => {
+export const getCategoryItems = (categoryId) => {
     return (dispatch, getState) => {
+        console.log("getCategoryItems request, catId = " + categoryId)
         let storeId = displayCurrentStore(getState().auth)
         dispatch({
-            type: GET_ITEM_BY_CATEGORY_PENDING
+            type: GET_ITEMS_BY_CATEGORY_PENDING
         })
         request(`/storeitemsummary/${storeId}/${categoryId}`, "GET")
         .then((response) => {
             dispatch({
-                type: GET_ITEM_BY_CATEGORY_SUCCESS,
+                type: GET_ITEMS_BY_CATEGORY_SUCCESS,
                 payload: response
             })
             
         })
         .catch((error) => {
             dispatch({
-                type: GET_ITEM_BY_CATEGORY_FAILED,
+                type: GET_ITEMS_BY_CATEGORY_FAILED,
                 payload: error
             })
         })
