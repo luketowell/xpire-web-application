@@ -5,6 +5,7 @@ import HomeText from '../components/TextComponents/HomeText'
 import { getStores } from '../redux/actions/auth'
 import Category from '../components/Category/Category';
 import CategoryContainer from '../components/Category/CategoryContainer';
+import ItemList from '../components/ItemList/ItemList';
 
 class Home extends Component {
 
@@ -14,14 +15,13 @@ class Home extends Component {
 
     
     render(){
-        console.log(this.props)
-        
         return (
         <div>
             <Header name="Home"/>
             <div className="PageContent">
                 <HomeText/>
                 <CategoryContainer/>
+                <ItemList/>
             </div>
         </div>
         )
