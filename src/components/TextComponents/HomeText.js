@@ -15,10 +15,10 @@ class HomeText extends Component{
             <div>
                 <p>Hello {user.name}, welcome to Xpire!</p>
                 <p>Your one stop shop for in store food wastage.</p>
-                <p>Your current store is {this.displayCurrentStore()}</p>
+                <p>Your current store is {displayCurrentStore(this.props.auth)}</p>
                 <Select
                     options={stores}
-                    value={stores.filter(stores => stores.value === this.displayCurrentStore())}
+                    value={stores.filter(stores => stores.value === displayCurrentStore(this.props.auth))}
                     onChange={selected => this.props.setChosenStore(selected)}
                 />
             </div>
