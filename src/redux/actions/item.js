@@ -1,5 +1,12 @@
-import { USER_AUTH, GET_CATEGORIES_PENDING, GET_CATEGORIES_SUCCESS, GET_CATEGORIES_FAILED } from '../actionTypes';
+import { USER_AUTH,
+    GET_CATEGORIES_PENDING,
+    GET_CATEGORIES_SUCCESS,
+    GET_CATEGORIES_FAILED,
+    GET_ITEM_BY_CATEGORY_PENDING,
+    GET_ITEM_BY_CATEGORY_SUCCESS,
+    GET_ITEM_BY_CATEGORY_FAILED } from '../actionTypes';
 import request from '../../utils/request';
+import displayCurrentStore from '../../utils/currentStore';
 
 export const authUser = () => {
     return {
@@ -8,11 +15,11 @@ export const authUser = () => {
 }
 
 export const getCategories = () => {
-    return (dispatch) => {
+    return (dispatch, getState) => {
         dispatch({
             type:GET_CATEGORIES_PENDING
         })
-        getCategoriesRequest()
+        request('/itemcategory/all', 'GET')
         .then((response) => {
             dispatch({
                 type:GET_CATEGORIES_SUCCESS,
@@ -29,14 +36,25 @@ export const getCategories = () => {
     }
 }
 
-const getCategoriesRequest = async () => {
-    let url = "/itemcategory/all"
-    let method = "GET"
-    try {
-        let response = await request(url, method, null)
-        return response
-    }
-    catch(error){
-        throw error
+export const setCategories = (categoryId) => {
+    return (dispatch, getState) => {
+        let storeId = displayCurrentStore(getState().auth)
+        dispatch({
+            type: GET_ITEM_BY_CATEGORY_PENDING
+        })
+        request(`/storeitemsummary/${storeId}/${categoryId}`, "GET")
+        .then((response) => {
+            dispatch({
+                type: GET_ITEM_BY_CATEGORY_SUCCESS,
+                payload: response
+            })
+            
+        })
+        .catch((error) => {
+            dispatch({
+                type: GET_ITEM_BY_CATEGORY_FAILED,
+                payload: error
+            })
+        })
     }
 }

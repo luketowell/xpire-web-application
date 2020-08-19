@@ -19,8 +19,7 @@ export const getStores = () => {
         dispatch({
             type:GET_STORES_PENDING
         });
-
-        retrieveStores()
+        request("/store/all","GET")
         .then(response => {
             dispatch({
                 type:GET_STORES_SUCCESS,
@@ -28,6 +27,7 @@ export const getStores = () => {
             })
         })
         .catch(error=>{
+            console.log(error)
             dispatch({
                 type:GET_STORES_FAILED,
                 payload: error
@@ -42,17 +42,4 @@ export const setChosenStore = (store) => {
         type: SET_CHOSEN_STORE,
         payload: store.value
     })
-}
-
-// functions
-const retrieveStores = async () => {
-    let url = "/store/all"
-    let method = "GET"
-    try {
-        let response = await request(url, method, null)
-        return response
-    }
-    catch(error){
-        throw error
-    }
 }
