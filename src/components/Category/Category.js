@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import asdaImage from '../../assets/images/asda.png';
+import { getCategoryItems } from '../../redux/actions/item';
 
 class Category extends Component{
 
@@ -19,7 +20,9 @@ class Category extends Component{
     render(){
         const { categoryData } = this.props
         return (
-            <div className="category" onClick={() => console.log("clicked")} >
+            <div className="category" onClick={() => {
+                this.props.getCategoryItems(categoryData.id)}
+                } >
                 <p>{categoryData.name}</p>
                 {this.renderImage(categoryData)}
             </div>
@@ -33,4 +36,4 @@ const mapStateToProps = (state) => {
     })
 }
 
-export default connect (mapStateToProps)(Category)
+export default connect (mapStateToProps, {getCategoryItems})(Category)
