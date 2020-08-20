@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 class NavLinks extends Component {
-    render(){
-        return(
-            <div >
+    render() {
+        return (
+            <div>
                 <ul className="NavLinks">
                     <li>
                         <Link to="/home">Home</Link>
@@ -17,8 +17,8 @@ class NavLinks extends Component {
                     </li>
                 </ul>
             </div>
-        )     
+        );
     }
 }
 
-export default NavLinks
+export default NavLinks;

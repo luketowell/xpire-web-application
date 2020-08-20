@@ -3,62 +3,69 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Redirect
-  } from "react-router-dom";
+    Redirect,
+} from 'react-router-dom';
 import { Login, Home, StoreInfo, Metrics } from '../../pages';
 import { connect } from 'react-redux';
 
-
-
-class Navigation extends Component{
-    render(){
+class Navigation extends Component {
+    render() {
         return (
             <Router>
                 <div>
                     <Switch>
-                      <Route exact path="/">
-                          <Login />
-                      </Route>
-                      <PrivateRoute path="/home" authed={this.props.auth.userAuthed}>
-                          <Home/>
-                      </PrivateRoute>
-                      <PrivateRoute path="/metrics" authed={this.props.auth.userAuthed}>
-                          <Metrics />
-                      </PrivateRoute>
-                      <PrivateRoute path="/storeinfo" authed={this.props.auth.userAuthed}>
-                          <StoreInfo />
-                      </PrivateRoute>
+                        <Route exact path="/">
+                            <Login />
+                        </Route>
+                        <PrivateRoute
+                            path="/home"
+                            authed={this.props.auth.userAuthed}
+                        >
+                            <Home />
+                        </PrivateRoute>
+                        <PrivateRoute
+                            path="/metrics"
+                            authed={this.props.auth.userAuthed}
+                        >
+                            <Metrics />
+                        </PrivateRoute>
+                        <PrivateRoute
+                            path="/storeinfo"
+                            authed={this.props.auth.userAuthed}
+                        >
+                            <StoreInfo />
+                        </PrivateRoute>
                     </Switch>
                 </div>
             </Router>
-        )
+        );
     }
 }
 
 function PrivateRoute({ authed, children, ...rest }) {
     return (
-      <Route
-        {...rest}
-        render={({ location }) =>
-          authed ? (
-            children
-          ) : (
-            <Redirect
-              to={{
-                pathname: "/",
-                state: { from: location }
-              }}
-            />
-          )
-        }
-      />
+        <Route
+            {...rest}
+            render={({ location }) =>
+                authed ? (
+                    children
+                ) : (
+                    <Redirect
+                        to={{
+                            pathname: '/',
+                            state: { from: location },
+                        }}
+                    />
+                )
+            }
+        />
     );
-  }
+}
 
-  const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-      auth: state.auth
-    }
-  }
+        auth: state.auth,
+    };
+};
 
-export default connect(mapStateToProps, {})(Navigation)
+export default connect(mapStateToProps, {})(Navigation);

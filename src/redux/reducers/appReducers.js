@@ -4,7 +4,7 @@ import ItemReducer from './item';
 
 const appReducers = combineReducers({
     auth: AuthReducer,
-    items: ItemReducer
-})
+    items: ItemReducer,
+});
 
-export default appReducers
+export default appReducers;

@@ -1,42 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { authUser, getStores } from '../redux/actions/auth';
 import { Redirect } from 'react-router-dom';
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/logo.png';
 
 class Login extends Component {
-
     loginClicked = () => {
-        console.log("clicked");
+        console.log('clicked');
         this.props.authUser();
-    }
-    
-    
-    render(){
-        console.log(this.props.auth)
-        if (this.props.auth.userAuthed){
-            return (
-                <Redirect to="/home"/>
-            )
+    };
+
+    render() {
+        console.log(this.props.auth);
+        if (this.props.auth.userAuthed) {
+            return <Redirect to="/home" />;
         }
         return (
-        <div className="LoginPage">
-            <div className="Logo">
-                <img src={Logo} height={200}/>
+            <div className="LoginPage">
+                <div className="Logo">
+                    <img src={Logo} height={200} />
+                </div>
+                <div className="text">
+                    <button onClick={() => this.loginClicked()}>Sign In</button>
+                </div>
             </div>
-            <div className="text">
-                <button onClick={()=> this.loginClicked()}>Sign In</button>
-            </div>
-        </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        auth : state.auth
-    }
-}
+        auth: state.auth,
+    };
+};
 
-
-export default connect (mapStateToProps, { authUser, getStores })(Login);
+export default connect(mapStateToProps, { authUser, getStores })(Login);

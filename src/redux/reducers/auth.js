@@ -1,56 +1,58 @@
-import user from '../../assets/mocks/user'
+import user from '../../assets/mocks/user';
 
-const { USER_AUTH,
+const {
+    USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
     GET_STORES_FAILED,
-    SET_CHOSEN_STORE} = require("../actionTypes")
+    SET_CHOSEN_STORE,
+} = require('../actionTypes');
 
 const initialState = {
-    userAuthed : false,
-    storesStatus: "complete",
+    userAuthed: false,
+    storesStatus: 'complete',
     stores: [],
-    error: "",
+    error: '',
     user: {},
-    chosenStore:false
-}
+    chosenStore: false,
+};
 
 const AuthReducer = (state = initialState, action) => {
-    switch(action.type){
-        case USER_AUTH: 
+    switch (action.type) {
+        case USER_AUTH:
             return {
                 ...state,
-                userAuthed:true,
-                user: user
-            }
+                userAuthed: true,
+                user: user,
+            };
         case GET_STORES_PENDING:
-            return{
+            return {
                 ...state,
-                storesStatus: "pending"
-            }
+                storesStatus: 'pending',
+            };
         case GET_STORES_SUCCESS:
             return {
                 ...state,
-                storesStatus: "completed",
-                stores: action.payload
-            }
+                storesStatus: 'completed',
+                stores: action.payload,
+            };
         case GET_STORES_FAILED:
             return {
                 ...state,
-                storesStatus: "failed",
-                error: action.payload.message
-            }
+                storesStatus: 'failed',
+                error: action.payload.message,
+            };
         case SET_CHOSEN_STORE:
             return {
                 ...state,
-                chosenStore: action.payload
-            }
+                chosenStore: action.payload,
+            };
         default: {
             return {
-                ...state
-            }
+                ...state,
+            };
         }
     }
-} 
+};
 
-export default AuthReducer
+export default AuthReducer;

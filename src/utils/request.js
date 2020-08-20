@@ -6,16 +6,16 @@ const request = async (url, requestType, data = {}) => {
         baseURL: HOST_URL,
         url: url,
         method: requestType,
-        data: data
+        data: data,
     })
-    .then(response => {
-        return response.data
-    })
-    .catch( error => {
-        throw error
-    })
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => {
+            throw error;
+        });
 
-    return request
-}
+    return request;
+};
 
-export default request
+export default request;

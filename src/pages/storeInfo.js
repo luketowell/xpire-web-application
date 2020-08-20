@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Header from '../components/Header/Header' 
+import Header from '../components/Header/Header';
 
 class StoreInfo extends Component {
-    render(){
+    render() {
         return (
-        <div>
-            <Header name = "Store Information"/>
-        </div>
-        )
+            <div>
+                <Header name="Store Information" />
+            </div>
+        );
     }
 }
 

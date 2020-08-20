@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import Store from './redux';
 
 render(
-  <Provider store={Store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
+    <Provider store={Store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

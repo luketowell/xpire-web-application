@@ -1,8 +1,7 @@
-
 const user = {
-        userName: "sgltowel",
-        name: "Luke Towell",
-        storeId: "4128"
-}
+    userName: 'sgltowel',
+    name: 'Luke Towell',
+    storeId: '4128',
+};
 
-export default user
+export default user;

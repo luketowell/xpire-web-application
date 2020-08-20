@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import Header from '../components/Header/Header'
+import Header from '../components/Header/Header';
 
 class Metrics extends Component {
-    render(){
+    render() {
         return (
-        <div>
-            <Header name="Metrics"/>
-        </div>
-        )
+            <div>
+                <Header name="Metrics" />
+            </div>
+        );
     }
 }
 

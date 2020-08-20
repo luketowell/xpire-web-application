@@ -1,12 +1,8 @@
 const displayCurrentStore = (authObject) => {
-    if (authObject.chosenStore){
-        return (
-            authObject.chosenStore
-        )
+    if (authObject.chosenStore) {
+        return authObject.chosenStore;
     }
-    return (
-        authObject.user.storeId
-    )
-}
+    return authObject.user.storeId;
+};
 
-export default displayCurrentStore
+export default displayCurrentStore;
