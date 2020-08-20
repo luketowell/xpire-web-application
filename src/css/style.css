@@ -39,6 +39,33 @@
   .category .categoryThumbnail {
     height: 150px; }
 
+.ItemList {
+  background: #D3D3D3;
+  border: solid 2px #777;
+  border-radius: 10px;
+  overflow-y: scroll;
+  max-height: 50rem; }
+
+.ItemCard {
+  display: inline-block;
+  position: relative;
+  border: solid 1px #777;
+  border-radius: 10px;
+  text-align: left;
+  width: 95%;
+  margin: 1rem auto;
+  background: #fff;
+  overflow: hidden; }
+  .ItemCard .ItemImage {
+    padding: 0.5rem;
+    float: left; }
+  .ItemCard .ItemText {
+    position: absolute;
+    margin: 0;
+    top: 25%;
+    left: 15%;
+    overflow: hidden; }
+
 *,
 *::after,
 *::before {

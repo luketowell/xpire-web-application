@@ -34,6 +34,7 @@ class CategoryContainer extends Component{
     } 
 
     render(){
+        console.log(this.props)
         return( 
             this.renderContainers()
         )

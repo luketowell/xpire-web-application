@@ -1,0 +1,24 @@
+.ItemCard {
+    display:inline-block;
+    position: relative;
+    border: solid 1px $color-grey;
+    border-radius: 10px;
+    text-align: left;
+    width:95%;
+    margin: 1rem auto;
+    background: $color-white;
+    overflow: hidden;
+
+    .ItemImage{
+        padding: 0.5rem;
+        float: left;
+    }
+
+    .ItemText {
+        position: absolute;
+        margin: 0;
+        top:25%;
+        left: 15%;
+        overflow:hidden;
+    }
+}
