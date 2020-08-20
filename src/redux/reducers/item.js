@@ -5,6 +5,7 @@ import {
     GET_ITEMS_BY_CATEGORY_PENDING,
     GET_ITEMS_BY_CATEGORY_SUCCESS,
     GET_ITEMS_BY_CATEGORY_FAILED,
+    FIND_ITEM_PENDING,
 } from '../actionTypes';
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
     chosenCategory: {},
     categoryStatus: 'completed',
     categoryItemsStatus: '',
+    itemInformation: {},
 };
 
 const ItemReducer = (state = initialState, action) => {
@@ -53,6 +55,11 @@ const ItemReducer = (state = initialState, action) => {
                 ...state,
                 categoryItemsStatus: 'failed',
                 error: action.payload.message,
+            };
+        case FIND_ITEM_PENDING:
+            return {
+                ...state,
+                selectedItem: action.payload,
             };
         default: {
             return {
