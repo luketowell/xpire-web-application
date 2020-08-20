@@ -1,7 +1,8 @@
 import { USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
-    GET_STORES_FAILED } from '../actionTypes';
+    GET_STORES_FAILED, 
+    SET_CHOSEN_STORE} from '../actionTypes';
 import request from '../../utils/request';
 
 export const authUser = () => {
@@ -18,8 +19,7 @@ export const getStores = () => {
         dispatch({
             type:GET_STORES_PENDING
         });
-
-        retrieveStores()
+        request("/store/all","GET")
         .then(response => {
             dispatch({
                 type:GET_STORES_SUCCESS,
@@ -27,6 +27,7 @@ export const getStores = () => {
             })
         })
         .catch(error=>{
+            console.log(error)
             dispatch({
                 type:GET_STORES_FAILED,
                 payload: error
@@ -36,15 +37,9 @@ export const getStores = () => {
     } 
 }
 
-// functions
-const retrieveStores = async () => {
-    let url = "/store/all"
-    let method = "GET"
-    try {
-        let response = await request(url, method, null)
-        return response
-    }
-    catch(error){
-        throw error
-    }
+export const setChosenStore = (store) => {
+    return ({
+        type: SET_CHOSEN_STORE,
+        payload: store.value
+    })
 }

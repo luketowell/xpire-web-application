@@ -1,13 +1,18 @@
+import user from '../../assets/mocks/user'
+
 const { USER_AUTH,
     GET_STORES_PENDING,
     GET_STORES_SUCCESS,
-    GET_STORES_FAILED } = require("../actionTypes")
+    GET_STORES_FAILED,
+    SET_CHOSEN_STORE} = require("../actionTypes")
 
 const initialState = {
     userAuthed : false,
     storesStatus: "complete",
     stores: [],
-    error: ""
+    error: "",
+    user: {},
+    chosenStore:false
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -15,7 +20,8 @@ const AuthReducer = (state = initialState, action) => {
         case USER_AUTH: 
             return {
                 ...state,
-                userAuthed:true
+                userAuthed:true,
+                user: user
             }
         case GET_STORES_PENDING:
             return{
@@ -25,15 +31,19 @@ const AuthReducer = (state = initialState, action) => {
         case GET_STORES_SUCCESS:
             return {
                 ...state,
-                storesStatus: "complete",
+                storesStatus: "completed",
                 stores: action.payload
             }
         case GET_STORES_FAILED:
-            console.log(action.payload.message)
             return {
                 ...state,
-                storesStatus: "complete",
+                storesStatus: "failed",
                 error: action.payload.message
+            }
+        case SET_CHOSEN_STORE:
+            return {
+                ...state,
+                chosenStore: action.payload
             }
         default: {
             return {

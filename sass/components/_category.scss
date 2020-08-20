@@ -1,0 +1,14 @@
+.category{
+    width: 100%;
+    padding-top:2rem;
+    display:block;
+    
+    &:hover{
+        cursor: pointer
+    }
+
+    .categoryThumbnail {
+        height:150px;
+    }
+
+}
