@@ -2,25 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class ItemCard extends Component {
-    render(){
+    render() {
         return (
-            <div className="ItemCard">
+            <div className="ItemCard" onClick={() => console.log('clicked')}>
                 <div className="ItemImage">
                     <img src={this.props.itemDetails.img_url} />
                 </div>
-                <div className="ItemText"> 
+                <div className="ItemText">
                     <p>Item Name: {this.props.itemDetails.name}</p>
                     <h2>Item UPC: {this.props.itemDetails.item_upc}</h2>
                 </div>
             </div>
-        )
+        );
     }
 }
 
 const mapStateToProps = (state) => {
-    return ({
+    return {};
+};
 
-    })
-}
-
-export default connect(mapStateToProps)(ItemCard)
+export default connect(mapStateToProps)(ItemCard);
