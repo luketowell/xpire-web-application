@@ -37,7 +37,6 @@ class ItemList extends Component {
     };
 
     render() {
-        let { items } = this.props;
         return <div className="ItemList">{this.renderItemList()}</div>;
     }
 }

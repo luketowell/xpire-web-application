@@ -8,14 +8,12 @@ import {
 import request from '../../utils/request';
 
 export const authUser = () => {
-    console.log('auth user action');
     return {
         type: USER_AUTH,
     };
 };
 
 export const getStores = () => {
-    console.log('Retrieving stores from the database');
     return (dispatch) => {
         dispatch({
             type: GET_STORES_PENDING,

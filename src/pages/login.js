@@ -6,19 +6,17 @@ import Logo from '../assets/images/logo.png';
 
 class Login extends Component {
     loginClicked = () => {
-        console.log('clicked');
         this.props.authUser();
     };
 
     render() {
-        console.log(this.props.auth);
         if (this.props.auth.userAuthed) {
             return <Redirect to="/home" />;
         }
         return (
             <div className="LoginPage">
                 <div className="Logo">
-                    <img src={Logo} height={200} />
+                    <img src={Logo} alt="Expire Logo" height={200} />
                 </div>
                 <div className="text">
                     <button onClick={() => this.loginClicked()}>Sign In</button>

@@ -9,7 +9,7 @@ class Category extends Component {
             return (
                 <img
                     src={categoryData.image_url}
-                    alt="Category thumbnail Image"
+                    alt="Category thumbnail"
                     className="categoryThumbnail"
                 />
             );
@@ -18,7 +18,7 @@ class Category extends Component {
         return (
             <img
                 src={asdaImage}
-                alt="Category thumbnail Image"
+                alt="Category thumbnail"
                 className="categoryThumbnail"
             />
         );

@@ -39,7 +39,6 @@ export const getCategories = () => {
 
 export const getCategoryItems = (categoryId) => {
     return (dispatch, getState) => {
-        console.log('getCategoryItems request, catId = ' + categoryId);
         let storeId = displayCurrentStore(getState().auth);
         dispatch({
             type: GET_ITEMS_BY_CATEGORY_PENDING,

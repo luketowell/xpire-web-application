@@ -6,7 +6,10 @@ class ItemCard extends Component {
         return (
             <div className="ItemCard" onClick={() => console.log('clicked')}>
                 <div className="ItemImage">
-                    <img src={this.props.itemDetails.img_url} />
+                    <img
+                        src={this.props.itemDetails.img_url}
+                        alt="item thumbnail"
+                    />
                 </div>
                 <div className="ItemText">
                     <p>Item Name: {this.props.itemDetails.name}</p>

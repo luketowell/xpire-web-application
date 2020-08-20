@@ -6,7 +6,7 @@ class Header extends Component {
     render() {
         return (
             <div className="Header">
-                <img src={Logo} height={200} />
+                <img src={Logo} alt="expire logo" height={200} />
                 <div className="header-text">
                     <NavLinks />
                     <h1>{this.props.name}</h1>
