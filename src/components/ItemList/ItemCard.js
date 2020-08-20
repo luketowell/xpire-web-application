@@ -5,8 +5,13 @@ class ItemCard extends Component {
     render(){
         return (
             <div className="ItemCard">
-                <p>this.props.itemDetails.name</p>
-                <p>this.props.itemDetails.item_upc</p>
+                <div className="ItemImage">
+                    <img src={this.props.itemDetails.img_url} />
+                </div>
+                <div className="ItemText"> 
+                    <p>Item Name: {this.props.itemDetails.name}</p>
+                    <h2>Item UPC: {this.props.itemDetails.item_upc}</h2>
+                </div>
             </div>
         )
     }
