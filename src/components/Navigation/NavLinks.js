@@ -10,6 +10,11 @@ class NavLinks extends Component {
                         <Link to="/home">Home</Link>
                     </li>
                     <li>
+                        <Link to="/product-information">
+                            Product Information
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/metrics">Metrics</Link>
                     </li>
                     <li>

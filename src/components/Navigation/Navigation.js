@@ -5,7 +5,7 @@ import {
     Route,
     Redirect,
 } from 'react-router-dom';
-import { Login, Home, StoreInfo, Metrics } from '../../pages';
+import { Login, Home, StoreInfo, Metrics, ItemInfo } from '../../pages';
 import { connect } from 'react-redux';
 
 class Navigation extends Component {
@@ -17,6 +17,12 @@ class Navigation extends Component {
                         <Route exact path="/">
                             <Login />
                         </Route>
+                        <PrivateRoute
+                            path="/product-information"
+                            authed={this.props.auth.userAuthed}
+                        >
+                            <ItemInfo />
+                        </PrivateRoute>
                         <PrivateRoute
                             path="/home"
                             authed={this.props.auth.userAuthed}
