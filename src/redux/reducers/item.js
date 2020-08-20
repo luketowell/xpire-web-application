@@ -13,7 +13,7 @@ const initialState = {
     addedAction:{},
     chosenCategory: {},
     categoryStatus: "completed",
-    categoryItemsStatus: "completed"
+    categoryItemsStatus: ""
 }
 
 const ItemReducer = (state = initialState, action) => {
