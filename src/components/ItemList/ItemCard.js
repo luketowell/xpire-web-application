@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { findProductInformation } from '../../redux/actions/item';
+import { withRouter } from 'react-router-dom';
 
 class ItemCard extends Component {
     render() {
+        const { history } = this.props;
+        console.log(this.props);
         return (
-            <div className="ItemCard" onClick={() => console.log('clicked')}>
+            <div
+                className="ItemCard"
+                onClick={() => {
+                    this.props.findProductInformation(
+                        this.props.itemDetails.id
+                    );
+                    history.push('/product-information');
+                }}
+            >
                 <div className="ItemImage">
                     <img
                         src={this.props.itemDetails.img_url}
@@ -21,7 +33,11 @@ class ItemCard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        items: state.items,
+    };
 };
 
-export default connect(mapStateToProps)(ItemCard);
+export default withRouter(
+    connect(mapStateToProps, { findProductInformation })(ItemCard)
+);
