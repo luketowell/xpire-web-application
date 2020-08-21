@@ -20,7 +20,7 @@ class ItemInfo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
+        item: state.items,
     };
 };
 

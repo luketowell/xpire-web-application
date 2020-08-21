@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 class ItemCard extends Component {
     render() {
         const { history } = this.props;
-        console.log(this.props);
         return (
             <div
                 className="ItemCard"
@@ -33,9 +32,7 @@ class ItemCard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        items: state.items,
-    };
+    return {};
 };
 
 export default withRouter(

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import asdaImage from '../../assets/images/asda.png';
-import { getCategoryItems } from '../../redux/actions/item';
+import { getCategoryItems } from '../../redux/actions/category';
 
 class Category extends Component {
     renderImage = (categoryData) => {
@@ -42,7 +42,7 @@ class Category extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
+        categories: state.categories,
     };
 };
 
