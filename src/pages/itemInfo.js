@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import { connect } from 'react-redux';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 class ItemInfo extends Component {
     render() {
@@ -9,7 +10,7 @@ class ItemInfo extends Component {
             <div>
                 <Header name="Product Information" />
                 <div className="PageContent">
-                    <h1>Search Bar</h1>
+                    <SearchBar />
                     <h1>Item information goes here</h1>
                     <h1>Action Information</h1>
                 </div>
