@@ -18,6 +18,7 @@ const initialState = {
     categoryStatus: 'completed',
     categoryItemsStatus: '',
     itemInformation: {},
+    selectedItem: '',
 };
 
 const ItemReducer = (state = initialState, action) => {

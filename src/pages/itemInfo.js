@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../components/Header/Header';
+import { connect } from 'react-redux';
 
 class ItemInfo extends Component {
     render() {
+        console.log(this.props);
         return (
             <div>
                 <Header name="Product Information" />
@@ -16,4 +18,10 @@ class ItemInfo extends Component {
     }
 }
 
-export default ItemInfo;
+const mapStateToProps = (state) => {
+    return {
+        items: state.items,
+    };
+};
+
+export default connect(mapStateToProps, {})(ItemInfo);
