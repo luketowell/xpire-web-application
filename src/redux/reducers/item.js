@@ -6,7 +6,7 @@ import {
 } from '../actionTypes';
 
 const initialState = {
-    selectedItem: '',
+    selectedStoreItem: false,
     storeItemStatus: '',
     storeItemDetails: {},
 };
@@ -21,6 +21,7 @@ const CategoryReducer = (state = initialState, action) => {
         case GET_STORE_ITEMS_BY_ID_SUCCESS:
             return {
                 ...state,
+                selectedStoreItem: false,
                 storeItemStatus: 'completed',
                 storeItemDetails: action.payload,
             };
@@ -33,7 +34,7 @@ const CategoryReducer = (state = initialState, action) => {
         case FIND_ITEM_PENDING:
             return {
                 ...state,
-                selectedItem: action.payload,
+                selectedStoreItem: action.payload,
             };
         default: {
             return {
