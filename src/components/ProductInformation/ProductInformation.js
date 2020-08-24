@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ProductInformationDisplay from './ProductInformationDisplay';
+import NewAction from '../Actions/NewAction';
 
 class ProductInformation extends Component {
     renderProductInformation = () => {
@@ -21,9 +22,12 @@ class ProductInformation extends Component {
             return <p>Loading product information ...</p>;
         } else {
             return (
-                <ProductInformationDisplay
-                    itemDetails={itemInfo.storeItemDetails}
-                />
+                <div>
+                    <ProductInformationDisplay
+                        itemDetails={itemInfo.storeItemDetails}
+                    />
+                    <NewAction />
+                </div>
             );
         }
     };
