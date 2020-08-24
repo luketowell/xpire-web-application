@@ -1,16 +1,45 @@
 .ItemContainer {
     margin-top: 4rem;
     width: 100%;
-    border: solid 1px black;
-    height: 20rem;
+    border: solid 2px black;
+    overflow: hidden;
+    padding: 2rem;
+    border-radius: 1rem;
 
     &--left {
+        img {
+            height: 200px;
+        }
         float: left;
-        width: 40%;
+        width: 35%;
+        padding-bottom: 2rem;
+
+        &--text {
+            padding-top: 2rem;
+        }
     }
 
     &--right {
         float: right;
-        width: 60%;
+        width: 65%;
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .description {
+            padding-top: 2rem;
+            margin: 0;
+            text-align: left;
+        }
+
+        .actionList {
+            padding-top: 2rem;
+            text-align: left;
+        }
+
+        .header {
+            font-weight: 700;
+        }
     }
 }
