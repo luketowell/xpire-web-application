@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ProductInformationDisplay from './ProductInformationDisplay';
 
 class ProductInformation extends Component {
-    renderProductInformation = () => {};
+    renderProductInformation = () => {
+        const { itemInfo } = this.props;
+        console.log(itemInfo);
+        if (itemInfo.storeItemStatus === '') {
+            return (
+                <p>Please enter a product number in the search box above.</p>
+            );
+        } else if (itemInfo.storeItemStatus === 'failed') {
+            return (
+                <p>
+                    Sorry there has been an issue retrieving the product
+                    information you requested. Please contact technical support
+                </p>
+            );
+        } else if (itemInfo.storeItemStatus === 'pending') {
+            return <p>Loading product information ...</p>;
+        } else {
+            return (
+                <ProductInformationDisplay
+                    itemDetails={itemInfo.storeItemDetails}
+                />
+            );
+        }
+    };
 
     render() {
-        return <h1>Product Information</h1>;
+        return this.renderProductInformation();
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        items: state.items,
+        itemInfo: state.items,
     };
 };
 

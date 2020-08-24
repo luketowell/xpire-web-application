@@ -7,8 +7,8 @@ import { getStoreItemById } from '../redux/actions/item';
 
 class ItemInfo extends Component {
     componentDidMount() {
-        if (this.props.item.selectedStoreItem) {
-            this.props.getStoreItemById(this.props.item.selectedStoreItem);
+        if (this.props.itemInfo.selectedStoreItem) {
+            this.props.getStoreItemById(this.props.itemInfo.selectedStoreItem);
         }
     }
     render() {
@@ -26,7 +26,7 @@ class ItemInfo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        item: state.items,
+        itemInfo: state.items,
     };
 };
 

@@ -15,7 +15,6 @@ export const findProductInformation = (ItemNumber) => {
 };
 
 export const getStoreItemById = (id) => {
-    console.log(id);
     return (dispatch, getState) => {
         dispatch({
             type: GET_STORE_ITEMS_BY_ID_PENDING,
