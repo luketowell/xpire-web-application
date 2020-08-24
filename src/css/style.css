@@ -69,6 +69,18 @@
 .SearchBar-Submit {
   overflow: hidden; }
 
+.ItemContainer {
+  margin-top: 4rem;
+  width: 100%;
+  border: solid 1px black;
+  height: 20rem; }
+  .ItemContainer--left {
+    float: left;
+    width: 40%; }
+  .ItemContainer--right {
+    float: right;
+    width: 60%; }
+
 *,
 *::after,
 *::before {
