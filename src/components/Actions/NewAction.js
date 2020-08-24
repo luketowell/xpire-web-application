@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getStatus } from '../../redux/actions/item';
 
 class NewAction extends Component {
     constructor(props) {
@@ -22,9 +23,19 @@ class NewAction extends Component {
         event.preventDefault();
     }
 
-    renderStatusSelect = () => {};
+    componentDidMount() {
+        this.props.getStatus();
+    }
+
+    renderStatusSelect = (statuses) => {
+        return statuses.map((status) => <h1>{status.id}</h1>);
+    };
 
     render() {
+        const statusOptions = [
+            { id: 1, name: 'BLOCKED' },
+            { id: 2, name: 'WASTED' },
+        ];
         return (
             <div className="newAction">
                 <h1>Staff Action</h1>
@@ -39,10 +50,7 @@ class NewAction extends Component {
                         name="nextExpiry"
                         onChange={() => this.handleInput}
                     ></input>
-                    <input
-                        name="action"
-                        onChange={() => this.handleInput}
-                    ></input>
+                    {this.renderStatusSelect(statusOptions)}
                     <input name="submit" type="Submit"></input>
                 </form>
             </div>
@@ -53,8 +61,7 @@ class NewAction extends Component {
 const mapStateToProps = (state) => {
     return {
         items: state.Items,
-        statusOptions: state.status.statusOptions,
     };
 };
 
-export default connect(mapStateToProps, {})(NewAction);
+export default connect(mapStateToProps, { getStatus })(NewAction);
