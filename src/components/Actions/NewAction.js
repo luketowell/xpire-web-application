@@ -8,7 +8,7 @@ class NewAction extends Component {
         this.state = {
             expiring: '',
             nextExpiry: '',
-            action: '',
+            action: '1',
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class NewAction extends Component {
     }
 
     handleSubmit(event) {
-        alert('A value was submitted: ' + this.state.productNumber);
+        console.log('state', this.state);
         event.preventDefault();
     }
 
@@ -28,31 +28,49 @@ class NewAction extends Component {
     }
 
     renderStatusSelect = (statuses) => {
-        return statuses.map((status) => <h1>{status.id}</h1>);
+        if (statuses.length > 0) {
+            return statuses.map((status) => (
+                <option value={status.id}>{status.name}</option>
+            ));
+        } else {
+            return <h1>Loading...</h1>;
+        }
     };
 
     render() {
-        const statusOptions = [
-            { id: 1, name: 'BLOCKED' },
-            { id: 2, name: 'WASTED' },
-        ];
+        const { statusOptions } = this.props.items;
         return (
             <div className="newAction">
                 <h1>Staff Action</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="number"
-                        name="expiring"
-                        onChange={() => this.handleInput}
-                    ></input>
-                    <input
-                        type=""
-                        name="nextExpiry"
-                        onChange={() => this.handleInput}
-                    ></input>
-                    {this.renderStatusSelect(statusOptions)}
-                    <input name="submit" type="Submit"></input>
-                </form>
+                <div className="newAction--labels">
+                    <p>Number Expiring:</p>
+                    <p>Next expiry date on product:</p>
+                    <p>Action Taken:</p>
+                </div>
+                <div className="newAction--input">
+                    <form onSubmit={this.handleSubmit}>
+                        <input
+                            type="number"
+                            name="expiring"
+                            value={this.state.expiring}
+                            onChange={this.handleInput}
+                        ></input>
+                        <input
+                            type="date"
+                            name="nextExpiry"
+                            value={this.state.nextExpiry}
+                            onChange={this.handleInput}
+                        ></input>
+                        <select
+                            value={this.state.action}
+                            name="action"
+                            onChange={this.handleInput}
+                        >
+                            {this.renderStatusSelect(statusOptions)}
+                        </select>
+                        <input name="submit" type="Submit"></input>
+                    </form>
+                </div>
             </div>
         );
     }
@@ -60,7 +78,7 @@ class NewAction extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        items: state.Items,
+        items: state.items,
     };
 };
 
