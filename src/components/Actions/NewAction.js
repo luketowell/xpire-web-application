@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getStatus } from '../../redux/actions/item';
+import { getStatus, postNewAction } from '../../redux/actions/item';
 
 class NewAction extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            expiring: '',
-            nextExpiry: '',
-            action: '1',
+            expired_count: '',
+            update_date: '',
+            status_id: '1',
         };
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,7 +19,7 @@ class NewAction extends Component {
     }
 
     handleSubmit(event) {
-        console.log('state', this.state);
+        this.props.postNewAction(this.state);
         event.preventDefault();
     }
 
@@ -51,19 +51,19 @@ class NewAction extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <input
                             type="number"
-                            name="expiring"
+                            name="expired_count"
                             value={this.state.expiring}
                             onChange={this.handleInput}
                         ></input>
                         <input
                             type="date"
-                            name="nextExpiry"
+                            name="update_date"
                             value={this.state.nextExpiry}
                             onChange={this.handleInput}
                         ></input>
                         <select
                             value={this.state.action}
-                            name="action"
+                            name="status_id"
                             onChange={this.handleInput}
                         >
                             {this.renderStatusSelect(statusOptions)}
@@ -82,4 +82,6 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { getStatus })(NewAction);
+export default connect(mapStateToProps, { getStatus, postNewAction })(
+    NewAction
+);
