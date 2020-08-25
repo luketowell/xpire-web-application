@@ -6,6 +6,9 @@ import {
     GET_STATUS_FAILED,
     GET_STATUS_SUCCESS,
     GET_STATUS_PENDING,
+    POST_ACTION_PENDING,
+    POST_ACTION_SUCCESS,
+    POST_ACTION_FAILED,
 } from '../actionTypes';
 
 const initialState = {
@@ -14,6 +17,7 @@ const initialState = {
     storeItemDetails: {},
     statusOptions: [],
     statusStatus: '',
+    newActionStatus: '',
     error: '',
 };
 
@@ -58,6 +62,22 @@ const CategoryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 statusStatus: 'pending',
+            };
+        case POST_ACTION_PENDING:
+            return {
+                ...state,
+                newActionStatus: 'pending',
+            };
+        case POST_ACTION_FAILED:
+            return {
+                ...state,
+                newActionStatus: 'failed',
+                error: action.payload.message,
+            };
+        case POST_ACTION_SUCCESS:
+            return {
+                ...state,
+                newActionStatus: 'complete',
             };
         default: {
             return {

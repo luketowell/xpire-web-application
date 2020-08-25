@@ -6,6 +6,9 @@ import {
     GET_STATUS_FAILED,
     GET_STATUS_SUCCESS,
     GET_STATUS_PENDING,
+    POST_ACTION_PENDING,
+    POST_ACTION_FAILED,
+    POST_ACTION_SUCCESS,
 } from '../actionTypes';
 import request from '../../utils/request';
 import displayCurrentStore from '../../utils/currentStore';
@@ -53,6 +56,31 @@ export const getStatus = (id) => {
             .catch((error) => {
                 dispatch({
                     type: GET_STATUS_FAILED,
+                    payload: error,
+                });
+            });
+    };
+};
+
+export const postNewAction = (action) => {
+    return (dispatch, getState) => {
+        const state = getState();
+        let data = action;
+        data.user_id = state.auth.user.userName;
+        data.store_item_id = state.items.storeItemDetails.id;
+        dispatch({
+            type: POST_ACTION_PENDING,
+        });
+        request(`/actions/new`, 'post', data)
+            .then((response) => {
+                dispatch({
+                    type: POST_ACTION_SUCCESS,
+                    payload: response,
+                });
+            })
+            .catch((error) => {
+                dispatch({
+                    type: POST_ACTION_FAILED,
                     payload: error,
                 });
             });
