@@ -69,6 +69,58 @@
 .SearchBar-Submit {
   overflow: hidden; }
 
+.newAction {
+  color: black;
+  border: black 2px solid;
+  border-radius: 1rem;
+  background: lightcoral;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1rem; }
+  .newAction--labels {
+    float: left;
+    text-align: left;
+    margin-left: 2rem; }
+  .newAction--input {
+    float: right; }
+    .newAction--input input {
+      margin: 1rem;
+      width: 80%; }
+    .newAction--input select {
+      width: 80%; }
+    .newAction--input input[type='submit'] {
+      width: 30%; }
+
+.ItemContainer {
+  margin-top: 4rem;
+  width: 100%;
+  border: solid 2px black;
+  overflow: hidden;
+  padding: 2rem;
+  border-radius: 1rem; }
+  .ItemContainer--left {
+    float: left;
+    width: 35%;
+    padding-bottom: 2rem; }
+    .ItemContainer--left img {
+      height: 200px; }
+    .ItemContainer--left--text {
+      padding-top: 2rem; }
+  .ItemContainer--right {
+    float: right;
+    width: 65%; }
+    .ItemContainer--right h1 {
+      font-size: 3rem; }
+    .ItemContainer--right .description {
+      padding-top: 2rem;
+      margin: 0;
+      text-align: left; }
+    .ItemContainer--right .actionList {
+      padding-top: 2rem;
+      text-align: left; }
+    .ItemContainer--right .header {
+      font-weight: 700; }
+
 *,
 *::after,
 *::before {

@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import Header from '../components/Header/Header';
 import { connect } from 'react-redux';
 import SearchBar from '../components/SearchBar/SearchBar';
+import ProductInformation from '../components/ProductInformation/ProductInformation';
+import { getStoreItemById } from '../redux/actions/item';
 
 class ItemInfo extends Component {
+    componentDidMount() {
+        if (this.props.itemInfo.selectedStoreItem) {
+            this.props.getStoreItemById(this.props.itemInfo.selectedStoreItem);
+        }
+    }
     render() {
-        console.log(this.props);
         return (
             <div>
                 <Header name="Product Information" />
                 <div className="PageContent">
                     <SearchBar />
-                    <h1>Item information goes here</h1>
-                    <h1>Action Information</h1>
+                    <ProductInformation />
                 </div>
             </div>
         );
@@ -21,8 +26,8 @@ class ItemInfo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        item: state.items,
+        itemInfo: state.items,
     };
 };
 
-export default connect(mapStateToProps, {})(ItemInfo);
+export default connect(mapStateToProps, { getStoreItemById })(ItemInfo);

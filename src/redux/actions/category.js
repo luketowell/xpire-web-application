@@ -5,7 +5,6 @@ import {
     GET_ITEMS_BY_CATEGORY_PENDING,
     GET_ITEMS_BY_CATEGORY_SUCCESS,
     GET_ITEMS_BY_CATEGORY_FAILED,
-    FIND_ITEM_PENDING,
 } from '../actionTypes';
 import request from '../../utils/request';
 import displayCurrentStore from '../../utils/currentStore';

@@ -2,14 +2,34 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            productNumber: '',
+        };
+
+        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleInput(event) {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleSubmit(event) {
+        alert('A value was submitted: ' + this.state.productNumber);
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div>
-                <form className="SearchBar">
+                <form className="SearchBar" onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         name="productNumber"
                         className="SearchBar-Input"
+                        onChange={this.handleInput}
                     />
                     <input
                         type="submit"

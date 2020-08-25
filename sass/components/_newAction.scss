@@ -1,0 +1,29 @@
+.newAction {
+    color: black;
+    border: black 2px solid;
+    border-radius: 1rem;
+    background: lightcoral;
+    overflow: hidden;
+    margin-top: 1rem;
+    padding: 1rem;
+
+    &--labels {
+        float: left;
+        text-align: left;
+        margin-left: 2rem;
+    }
+
+    &--input {
+        float: right;
+        input {
+            margin: 1rem;
+            width: 80%;
+        }
+        select {
+            width: 80%;
+        }
+        input[type='submit'] {
+            width: 30%;
+        }
+    }
+}
