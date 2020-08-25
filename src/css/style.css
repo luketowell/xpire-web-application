@@ -69,6 +69,28 @@
 .SearchBar-Submit {
   overflow: hidden; }
 
+.newAction {
+  color: black;
+  border: black 2px solid;
+  border-radius: 1rem;
+  background: lightcoral;
+  overflow: hidden;
+  margin-top: 1rem;
+  padding: 1rem; }
+  .newAction--labels {
+    float: left;
+    text-align: left;
+    margin-left: 2rem; }
+  .newAction--input {
+    float: right; }
+    .newAction--input input {
+      margin: 1rem;
+      width: 80%; }
+    .newAction--input select {
+      width: 80%; }
+    .newAction--input input[type='submit'] {
+      width: 30%; }
+
 .ItemContainer {
   margin-top: 4rem;
   width: 100%;
