@@ -47,7 +47,6 @@ export const getCategoryItems = (categoryId) => {
         if (date === '') {
             date = new Date().toISOString().split('T')[0];
         }
-        console.log(date);
         dispatch({
             type: GET_ITEMS_BY_CATEGORY_PENDING,
         });
