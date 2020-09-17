@@ -6,6 +6,7 @@ import {
     GET_ITEMS_BY_CATEGORY_SUCCESS,
     GET_ITEMS_BY_CATEGORY_FAILED,
     FIND_ITEM_PENDING,
+    SET_DATE,
 } from '../actionTypes';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     chosenCategory: {},
     categoryStatus: 'completed',
     categoryItemsStatus: '',
+    chosenDate: '',
 };
 
 const CategoryReducer = (state = initialState, action) => {
@@ -56,6 +58,13 @@ const CategoryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedItem: action.payload,
+            };
+        case SET_DATE:
+            return {
+                ...state,
+                categoryItemsStatus: '',
+                categoryItems: [],
+                chosenDate: action.payload,
             };
         default: {
             return {
