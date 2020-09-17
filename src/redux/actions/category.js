@@ -5,9 +5,20 @@ import {
     GET_ITEMS_BY_CATEGORY_PENDING,
     GET_ITEMS_BY_CATEGORY_SUCCESS,
     GET_ITEMS_BY_CATEGORY_FAILED,
+    SET_DATE,
 } from '../actionTypes';
 import request from '../../utils/request';
 import displayCurrentStore from '../../utils/currentStore';
+
+export const setDate = (date) => {
+    let selectedDate = date.toISOString().split('T')[0];
+    return (dispatch) => {
+        dispatch({
+            type: SET_DATE,
+            payload: selectedDate,
+        });
+    };
+};
 
 export const getCategories = () => {
     return (dispatch, getState) => {
