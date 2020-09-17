@@ -24,6 +24,17 @@ class HomeText extends Component {
                     )}
                     onChange={(selected) => this.props.setChosenStore(selected)}
                 />
+                <p>Select Date: </p>
+                <input
+                    type="date"
+                    name="update_date"
+                    value={
+                        this.props.categories.chosenDate !== ''
+                            ? this.props.categories.chosenDate
+                            : new Date().toISOString().split('T')[0]
+                    }
+                    onChange={(event) => this.props.setDate(event.target.value)}
+                ></input>
             </div>
         );
     }
@@ -32,6 +43,7 @@ class HomeText extends Component {
 const mapStateToProps = (state) => {
     return {
         auth: state.auth,
+        categories: state.categories,
         items: state.items,
     };
 };
