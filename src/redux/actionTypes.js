@@ -45,3 +45,6 @@ export const POST_ACTION_FAILED = 'POST_ACTION_FAILED';
 export const FIND_ITEM_PENDING = 'FIND_ITEM_PENDING';
 export const FIND_ITEM_SUCCESS = 'FIND_ITEM_SUCCESS';
 export const FIND_ITEM_FAILED = 'FIND_ITEM_FAILED';
+
+//view specific Date items
+export const SET_DATE = 'SET_DATE';
