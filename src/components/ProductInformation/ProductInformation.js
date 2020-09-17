@@ -6,7 +6,6 @@ import NewAction from '../Actions/NewAction';
 class ProductInformation extends Component {
     renderProductInformation = () => {
         const { itemInfo } = this.props;
-        console.log(itemInfo);
         if (itemInfo.storeItemStatus === '') {
             return (
                 <p>Please enter a product number in the search box above.</p>
