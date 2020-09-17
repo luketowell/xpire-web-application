@@ -11,11 +11,10 @@ import request from '../../utils/request';
 import displayCurrentStore from '../../utils/currentStore';
 
 export const setDate = (date) => {
-    let selectedDate = date.toISOString().split('T')[0];
     return (dispatch) => {
         dispatch({
             type: SET_DATE,
-            payload: selectedDate,
+            payload: date,
         });
     };
 };
@@ -44,10 +43,15 @@ export const getCategories = () => {
 export const getCategoryItems = (categoryId) => {
     return (dispatch, getState) => {
         let storeId = displayCurrentStore(getState().auth);
+        let date = getState().categories.chosenDate;
+        if (date === '') {
+            date = new Date().toISOString().split('T')[0];
+        }
+        console.log(date);
         dispatch({
             type: GET_ITEMS_BY_CATEGORY_PENDING,
         });
-        request(`/storeitemsummary/${storeId}/${categoryId}`, 'GET')
+        request(`/storeitemsummary/${storeId}/${categoryId}/${date}`, 'GET')
             .then((response) => {
                 dispatch({
                     type: GET_ITEMS_BY_CATEGORY_SUCCESS,
