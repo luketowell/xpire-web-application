@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Select from 'react-select';
 import { setChosenStore } from '../../redux/actions/auth';
 import displayCurrentStore from '../../utils/currentStore';
+import { setDate } from '../../redux/actions/category';
 
 class HomeText extends Component {
     render() {
@@ -48,4 +49,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { setChosenStore })(HomeText);
+export default connect(mapStateToProps, { setChosenStore, setDate })(HomeText);
