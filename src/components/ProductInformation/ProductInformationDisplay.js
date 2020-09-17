@@ -3,6 +3,10 @@ import Action from '../Actions/Action';
 
 function ProductInfomationDisplay(props) {
     const { item, actions } = props.itemDetails;
+    console.log('item', props.itemDetails);
+    let expiryDate = new Date(props.itemDetails.expiry_date);
+    expiryDate.setHours(expiryDate.getHours() + 2);
+    console.log(expiryDate.toISOString());
     return (
         <div className="ItemContainer">
             <div className="ItemContainer--left">
@@ -14,7 +18,7 @@ function ProductInfomationDisplay(props) {
             </div>
             <div className="ItemContainer--right">
                 <h1>{item.name}</h1>
-                <p>Expiry Date: {item.expiry}</p>
+                <p>Expiry Date: {expiryDate.toDateString()}</p>
                 <div className="description">
                     <p className="header">Description:</p>
                     <p>{item.description}</p>
